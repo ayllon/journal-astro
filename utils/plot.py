@@ -50,6 +50,9 @@ def scatter_delta(data, fmt='.', ylabel=None, xlabel=None, ydeltalabel=None, fig
         c = [c] * nrows
 
     plt.figure(figsize=figsize)
+    
+    share_y_top = None
+    share_y_bottom = None
 
     for i in range(nplots):
         assert type(data[i] == tuple)
@@ -95,7 +98,7 @@ def scatter_delta(data, fmt='.', ylabel=None, xlabel=None, ydeltalabel=None, fig
         gs.update(left=left, right=right, bottom=bottom, top=top, hspace=0)
 
         # Scatter
-        ax1 = plt.subplot(gs[:-1, :])
+        ax1 = plt.subplot(gs[:-1, :], sharey=share_y_top)
         ax1.errorbar(x, y, yerr=yerr, fmt=fmt, c=c[i])
         ax1.set_xticks([])
         ax1.grid(True, linestyle=':')
@@ -105,9 +108,12 @@ def scatter_delta(data, fmt='.', ylabel=None, xlabel=None, ydeltalabel=None, fig
             ax1.set_ylabel(ylabel)
         if title:
             ax1.set_title(title)
+            
+        if not share_y_top:
+            share_y_top = ax1
 
         # Delta
-        ax2 = plt.subplot(gs[-1, :])
+        ax2 = plt.subplot(gs[-1, :], sharey=share_y_bottom)
         ax2.errorbar(x, y - x, yerr=yerr, fmt=fmt, c=c[i])
         ax2.grid(True, linestyle=':')
         if flag is not None:
@@ -116,6 +122,9 @@ def scatter_delta(data, fmt='.', ylabel=None, xlabel=None, ydeltalabel=None, fig
             ax2.set_ylabel(ydeltalabel)
         if xlabel:
             ax2.set_xlabel(xlabel)
+            
+        if not share_y_bottom:
+            share_y_bottom = ax2
 
 
 def add_stats(ax, data):
