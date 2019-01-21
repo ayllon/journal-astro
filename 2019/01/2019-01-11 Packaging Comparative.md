@@ -7,7 +7,7 @@
 | Deb       | Debian/Ubuntu | Yes  | No          | Yes (ppa)       | ~23 MiB         | ~81 MiB      | Trivial     | Medium (Manual)  | Yes               |
 | Docker    | Any           | No*  | Yes         | Yes (DockerHub) | ~137 MiB        | ~500 MiB     | Hard        | Easy             | Yes               |
 | Flatpak   | Linux         | No*  | Yes         | Yes (Flathub)   | 24 MiB          | 286 MiB      | Medium      | Easy             | Yes               |
-| Snap      | Linux         | ?    | Yes         | Yes (Store)     | ?               | ?            | Easy        | ?                | ?                 |
+| Snap      | Linux         | Yes  | Yes         | Yes (Store)     | ?               | ?            | Easy        | ?                | ?                 |
 | AppImage  | Linux         | No   | Yes         | No              | 29 MiB          | 29 MiB       | Trivial     | Trivial          | Yes               |
 | Homebrew  | Linux/MacOSX  | No   | -           | Yes (GitHub)    | From sources    | From sources | Medium      | Easy             | Not worth/No need |
 
@@ -230,8 +230,10 @@ chmod a+x SExtractor-x86_64.AppImage
 Even [Torvalds likes it](https://plus.google.com/+LinusTorvalds/posts/WyrATKUnmrS).
 
 ### Easy to maintain
-Nothing special to be done besides scripting the creation of the AppImage.
-
+~~Nothing special to be done besides scripting the creation of the AppImage.~~
+Handling the Python environment within the image is not being trivial. We can not rely
+on the system Python version, as packages may be missing and, besides, there are ABI
+[incompatibility between Python versions](https://docs.python.org/3/c-api/stable.html).
 
 ### Can be automated?
 Yes, and it can work with rpms, locally building...
