@@ -5,10 +5,10 @@
 | RPM/copr  | Fedora/CentOS | Yes  | No          | Yes (copr)      | 23 MiB          | 81 MiB       | Trivial     | Easy (Elements)  | Yes               |
 | RPM/epel  | Fedora/CentOS | Yes  | No          | Yes (epel)      | 23 MiB          | 81 MiB       | Trivial     | Medium (Manual)  | Not worth?        |
 | Deb       | Debian/Ubuntu | Yes  | No          | Yes (ppa)       | ~23 MiB         | ~81 MiB      | Trivial     | Medium (Manual)  | Yes               |
-| Docker    | Any           | No*  | Yes         | Yes (DockerHub) | ~137 MiB        | ~500 MiB     | Hard        | Easy             | Yes               |
-| Flatpak   | Linux         | No*  | Yes         | Yes (Flathub)   | 24 MiB          | 286 MiB      | Medium      | Easy             | Yes               |
+| Docker    | Any           | No\* | Yes         | Yes (DockerHub) | ~137 MiB        | ~500 MiB     | Hard        | Easy             | Yes               |
+| Flatpak   | Linux         | No\* | Yes         | Yes (Flathub)   | 24 MiB          | 286 MiB      | Medium      | Easy             | Yes               |
 | Snap      | Linux         | Yes  | Yes         | Yes (Store)     | ?               | ?            | Easy        | ?                | ?                 |
-| AppImage  | Linux         | No   | Yes         | No              | 29 MiB          | 29 MiB       | Trivial     | Trivial          | Yes               |
+| AppImage  | Linux         | No   | Yes         | No              | 54 MiB          | 54 MiB       | Trivial     | Trivial          | Yes               |
 | Homebrew  | Linux/MacOSX  | No   | -           | Yes (GitHub)    | From sources    | From sources | Medium      | Easy             | Not worth/No need |
 
 * **System**: OS or distribution where it will work
@@ -231,9 +231,12 @@ Even [Torvalds likes it](https://plus.google.com/+LinusTorvalds/posts/WyrATKUnmr
 
 ### Easy to maintain
 ~~Nothing special to be done besides scripting the creation of the AppImage.~~
-Handling the Python environment within the image is not being trivial. We can not rely
+
+Handling the Python environment within the image is not trivial. We can not rely
 on the system Python version, as packages may be missing and, besides, there are ABI
 [incompatibility between Python versions](https://docs.python.org/3/c-api/stable.html).
+
+I have managed to make it work, at least building in F28 and running also in Ubuntu 18.04.
 
 ### Can be automated?
 Yes, and it can work with rpms, locally building...
