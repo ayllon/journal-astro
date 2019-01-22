@@ -209,6 +209,9 @@ Any Linux, but needs to be careful  and build with the oldest-new-enough platfor
 of libc and similar are likely to be backwards-compatible, but if we compile with a modern system,
 older platforms [may not be able to run the binary](https://github.com/AppImage/AppImageKit/wiki/Creating-AppImages#binaries-compiled-on-old-enough-base-system).
 
+libfuse has to be installed, but normally it is on basically any modern Linux system.
+May not be available on some Docker images.
+
 ### Root
 No.
 
