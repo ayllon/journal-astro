@@ -1,15 +1,16 @@
 # Summary table
 
-| Packaging | System        | Root | Single file | Centralized     | Artifact size   | "Real" size  | Easy to use | Easy to maintain | Can be automated  |
-|-----------|---------------|------|-------------|-----------------|-----------------|--------------|-------------|------------------|-------------------|
-| RPM/copr  | Fedora/CentOS | Yes  | No          | Yes (copr)      | 23 MiB          | 81 MiB       | Trivial     | Easy (Elements)  | Yes               |
-| RPM/epel  | Fedora/CentOS | Yes  | No          | Yes (epel)      | 23 MiB          | 81 MiB       | Trivial     | Medium (Manual)  | Not worth?        |
-| Deb       | Debian/Ubuntu | Yes  | No          | Yes (ppa)       | ~23 MiB         | ~81 MiB      | Trivial     | Medium (Manual)  | Yes               |
-| Docker    | Any           | No\* | Yes         | Yes (DockerHub) | ~137 MiB        | ~500 MiB     | Hard        | Easy             | Yes               |
-| Flatpak   | Linux         | No\* | Yes         | Yes (Flathub)   | 24 MiB          | 286 MiB      | Medium      | Easy             | Yes               |
-| Snap      | Linux         | Yes  | Yes         | Yes (Store)     | ?               | ?            | Easy        | ?                | ?                 |
-| AppImage  | Linux         | No   | Yes         | No              | 54 MiB          | 54 MiB       | Trivial     | Trivial          | Yes               |
-| Homebrew  | Linux/MacOSX  | No   | -           | Yes (GitHub)    | From sources    | From sources | Medium      | Easy             | Not worth/No need |
+| Packaging | System         | Root | Single file | Centralized     | Artifact size   | "Real" size  | Easy to use | Easy to maintain | Can be automated  |
+|-----------|----------------|------|-------------|-----------------|-----------------|--------------|-------------|------------------|-------------------|
+| RPM/copr  | Fedora/CentOS  | Yes  | No          | Yes (copr)      | 23 MiB          | 81 MiB       | Trivial     | Easy (Elements)  | Yes               |
+| RPM/epel  | Fedora/CentOS  | Yes  | No          | Yes (epel)      | 23 MiB          | 81 MiB       | Trivial     | Medium (Manual)  | Not worth?        |
+| Deb       | Debian/Ubuntu  | Yes  | No          | Yes (ppa)       | ~23 MiB         | ~81 MiB      | Trivial     | Medium (Manual)  | Yes               |
+| Docker    | Any            | No\* | Yes         | Yes (DockerHub) | ~137 MiB        | ~500 MiB     | Hard        | Easy             | Yes               |
+| Flatpak   | Linux (Fedora) | No\* | Yes         | Yes (Flathub)   | 24 MiB          | 286 MiB      | Medium      | Easy             | Yes               |
+| Snap      | Linux (Ubuntu) | Yes  | Yes         | Yes (Store)     | 22 M            | ?            | Easy        | ?                | Yes               |
+| AppImage  | Linux          | No   | Yes         | No              | 54 MiB          | 54 MiB       | Trivial     | Trivial          | Yes               |
+| Homebrew  | Linux/MacOSX   | No   | -           | Yes (GitHub)    | From sources    | From sources | Medium      | Easy             | Not worth/No need |
+| Deb+RPM   | Linux          | Yes  | No          | Yes (OpenSUSE)  | na              | na           | Trivial     | Medium/Hard      | ?                 |
 
 * **System**: OS or distribution where it will work
 * **Root**: Requires root to install software ()
@@ -183,7 +184,7 @@ Installed by default in Ubuntu. Support on other distributions seem to be
 [so-so](https://kamikazow.wordpress.com/2018/06/08/adoption-of-flatpak-vs-snap-2018-edition/).
 
 ### Root
-Root is required to install (I haven't found anything pointing to the contrary.)
+Root is required to install and to build.
 
 ### Single file
 Yes.
@@ -290,3 +291,8 @@ If Fedora only is good enough, then copr can fit the bill.
 Homebrew could be a good option for MacOSX users. Guaranteeing that it will compile in any Linux may prove to
 be complicated. It was working, and when writing this document, it wouldn't work anymore during the linking of
 boost-python 😒
+
+## [OpenSUSE](https://build.opensuse.org/package/show/home:ayllon)
+I have not look much at it, but it allows to have in one single place Debian/RPM packages, and
+AppImage (allegedly). Manifest maintenance would have to be mostly manual.
+
