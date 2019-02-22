@@ -107,7 +107,7 @@ def get_closest(catalog, kdtree, alpha='world_centroid_alpha', delta='world_cent
     index_c = []
     index_s = []
     for i, e in enumerate(catalog):
-        d, s = kdtree.query([e['world_centroid_alpha'], e['world_centroid_delta']], 1)
+        d, s = kdtree.query([e[alpha], e[delta]], 1)
         distances.append(d)
         index_c.append(i)
         index_s.append(s)
