@@ -40,12 +40,21 @@ class CrossValidation(object):
             self.__image = image
 
         self.__max_dist = max_dist
+        
+        stars_cols = {}
+        galaxies_cols = {}
+        for sc in simulation.stars.dtype.names:
+            if sc not in ['ra', 'dec']:
+                stars_cols[sc] = simulation.stars[sc]
+        for gc in simulation.galaxies.dtype.names:
+            if gc not in ['ra', 'dec']:
+                galaxies_cols[gc] = simulation.galaxies[gc]
 
         self.stars = self.__image.get_contained_sources(
-            simulation.stars.ra, simulation.stars.dec, mag=simulation.stars.mag, flux=simulation.stars.flux
+            simulation.stars.ra, simulation.stars.dec, **stars_cols
         )
         self.galaxies = self.__image.get_contained_sources(
-            simulation.galaxies.ra, simulation.galaxies.dec, mag=simulation.galaxies.mag, flux=simulation.galaxies.flux
+            simulation.galaxies.ra, simulation.galaxies.dec, **galaxies_cols
         )
         self.__all_mag = np.append(self.stars.mag, self.galaxies.mag)
 
