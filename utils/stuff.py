@@ -79,7 +79,9 @@ class Simulation(object):
         ])
         self.__galaxies = np.recarray((len(galaxies_raw),), dtype=[
             ('ra', float), ('dec', float), ('mag', float), ('flux', float),
-            ('bt_ratio', float), ('bulge', float), ('bulge_aspect', float), ('disk', float), ('disk_aspect', float),
+            ('bt_ratio', float),
+            ('bulge', float), ('bulge_aspect', float), ('bulge_angle', float),
+            ('disk', float), ('disk_aspect', float), ('disk_angle', float),
             ('redshift', float), ('type', float)
         ])
 
@@ -91,8 +93,8 @@ class Simulation(object):
             self.__galaxies[i].ra, self.__galaxies[i].dec = float(g[1]), float(g[2])
             self.__galaxies[i].mag = float(g[3])
             self.__galaxies[i].bt_ratio = float(g[4])
-            self.__galaxies[i].bulge, self.__galaxies[i].bulge_aspect = float(g[5]), float(g[6])
-            self.__galaxies[i].disk, self.__galaxies[i].disk_aspect = float(g[8]), float(g[9])
+            self.__galaxies[i].bulge, self.__galaxies[i].bulge_aspect, self.__galaxies[i].bulge_angle = float(g[5]), float(g[6]), float(g[7])
+            self.__galaxies[i].disk, self.__galaxies[i].disk_aspect, self.__galaxies[i].disk_angle = float(g[8]), float(g[9]), float(g[10])
             self.__galaxies[i].redshift = float(g[11])
             self.__galaxies[i].type = float(g[12])
         self.__galaxies.flux = exposure * np.power(10, (self.__galaxies.mag - mag_zeropoint) / -2.5)
