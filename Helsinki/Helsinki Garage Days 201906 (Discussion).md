@@ -45,15 +45,13 @@ How do we define bins? In each run, the trained SOM will be different, with diff
 We need an algorithm.
 
 
-1. Calibration depends on weights from SHE. If they change, we need to re-run. Can not preselect.
+1. Calibration depends on weights from SHE. If they change, we need to re-run. Can not post-select.
 
 2. We define bins from the SOM like the image. We count on Weak Lensing people to tell us 
 how to bin the cells.
 
-Preselection: i.e. VIS > 24.5 (I guess?)
-
 Picture is the most important!!
-Pour calibrer il faut savoir les poids des objects pour calibrer.
+Pour calibrer il faut savoir les poids des objects.
 
 Correction picture: epsilon as weight on the sum.
 
