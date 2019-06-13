@@ -47,7 +47,7 @@ Notes:
 * What fraction of the products stored on the data centers will be pushed to the SAS?
 * Data Releases are made from SAS
 * The Data Product Description Document should contain all products involved in data processing
-    - [PHZ 11])(http://euclid.esac.esa.int/dm/dpdd/latest/phzdpd/phzindex.html) (I see more than 11?)
+    - [PHZ 11](http://euclid.esac.esa.int/dm/dpdd/latest/phzdpd/phzindex.html) (I see more than 11?)
         * I think it is outdated. Need to look for the document.
     - 250 DP in total
 * Products pushed to SAS needs more in depth description than what is in the DPDD
@@ -95,6 +95,6 @@ Notes:
 * **PHZ responsability: how noise affects bin selection (TBD together)**
 * Pipeline updates *will* be orchestrated
 
-##[Increasing EUclid Sky Coverage.... Zodiacal](https://wiki.cosmos.esa.int/euclid/images/8/81/Ganga.pdf)
+## [Increasing Euclid Sky Coverage.... Zodiacal](https://wiki.cosmos.esa.int/euclid/images/8/81/Ganga.pdf)
 * Low latitudes later interesting because compensates CTI
 * Best regions first (if it stops working!)
